@@ -8,8 +8,8 @@ from enum import Enum
 from github import Github
 from github.GithubException import RateLimitExceededException
 
-from github_prospector.utils import BASE_DIR
 
+DEFAULT_METRICS_DIR = os.path.dirname(os.path.realpath(__file__))
 
 def github_rate_limit_decorator(func):
     """Decorator checking github limits and can make pause."""
@@ -37,11 +37,7 @@ def github_rate_limit_decorator(func):
 
 def get_all_metrics():
     """Getting all metrics by getting all properties."""
-    modules = [
-        f'metrics.{i.split(".")[0]}' for i in os.listdir(os.path.join(
-            BASE_DIR, 'metrics'
-        )) if i.endswith('.py')
-    ]
+    modules = [f'metrics.{i.split(".")[0]}' for i in os.listdir(DEFAULT_METRICS_DIR) if i.endswith('.py')]
     collected_metrics = {}
     for module in modules:
         if module == 'metrics.Base':

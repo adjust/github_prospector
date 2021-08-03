@@ -12,8 +12,7 @@ from github_prospector.metrics.Base import __get_class_properties
 
 DATE_PATTERN = "%m-%d-%Y"
 
-BASE_DIR = os.path.abspath('.')
-
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 def print_version():
     print(f'Current auditor version: {__version__}')
