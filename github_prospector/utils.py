@@ -12,6 +12,8 @@ from github_prospector.metrics.Base import __get_class_properties
 
 DATE_PATTERN = "%m-%d-%Y"
 
+BASE_DIR = os.path.abspath('.')
+
 
 def print_version():
     print(f'Current auditor version: {__version__}')
@@ -57,7 +59,7 @@ def print_all_metrics():
     print("All existing metrics: ")
     modules = [
         f'metrics.{i.split(".")[0]}' for i in os.listdir(os.path.join(
-            os.path.abspath('.'), 'github_prospector', 'metrics'
+            BASE_DIR, 'metrics'
         )) if i.endswith('.py')
     ]
     for module in modules:
