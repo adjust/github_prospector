@@ -1,11 +1,11 @@
 import os
 from optparse import OptionParser
 
-from QueryRunners import QueryRunner
-from Reporter import ReporterTypes, Reporter
-from utils import (validate_options, validate_and_get_repos, print_all_metrics, print_version,
-                   parse_date,
-                   print_rate_limits, validate_and_get_teams)
+from github_prospector.QueryRunners import QueryRunner
+from github_prospector.Reporter import ReporterTypes, Reporter
+from github_prospector.utils import (validate_options, validate_and_get_repos, print_all_metrics, print_version,
+                                     parse_date,
+                                     print_rate_limits, validate_and_get_teams)
 
 parser = OptionParser()
 parser.add_option('-t', '--github_token', dest='github_token', default=os.environ.get('auditor_token'),
@@ -16,8 +16,8 @@ parser.add_option('-e', '--end_date', dest='end_date', help='filter metrics by e
 parser.add_option('-q', '--query', dest='query', help='query contains metric names split by comma')
 parser.add_option('-l', '--metrics-list', dest='only_print_metrics', action='store_true', default=False,
                   help='list of all exising metrics')
-parser.add_option('--out-dir', dest='output_dir', default=os.path.join(os.path.abspath('.'), 'runs'),
-                  help=f"directory for storing reports. DEFAULT: {os.path.join(os.path.abspath('.'), 'runs')}")
+parser.add_option('--out-dir', dest='output_dir', default=os.path.join(os.path.abspath('..'), '../runs'),
+                  help=f"directory for storing reports. DEFAULT: {os.path.join(os.path.abspath('..'), '../runs')}")
 parser.add_option('-f', '--format', choices=['json', 'csv', 'print'], dest='reporter_type', default='print',
                   help=f'Type of Reports: {ReporterTypes.get_all_reporters_types()}')
 parser.add_option('--one-file', dest='one_file', action='store_true', default=False, help='create one-file report')

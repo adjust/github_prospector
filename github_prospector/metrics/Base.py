@@ -35,12 +35,16 @@ def github_rate_limit_decorator(func):
 
 def get_all_metrics():
     """Getting all metrics by getting all properties."""
-    modules = [f'metrics.{i.split(".")[0]}' for i in os.listdir('metrics') if i.endswith('.py')]
+    modules = [
+        f'metrics.{i.split(".")[0]}' for i in os.listdir(os.path.join(
+            os.path.abspath('.'), 'github_prospector', 'metrics'
+        )) if i.endswith('.py')
+    ]
     collected_metrics = {}
     for module in modules:
-        if module == 'Base.py':
+        if module == 'metrics.Base':
             continue
-        tmp_module = importlib.import_module(module)
+        tmp_module = importlib.import_module('github_prospector.' + module)
         for i in dir(tmp_module):
             if not i.endswith('Metrics'):
                 continue
