@@ -4,13 +4,13 @@ GitHub Prospector
 
 **Contacts:** maksim.kuznetsov@akvelon.com, viktor.chaptsev@adjust.com or Development Efficiency Team
 
+## Install
+```shell
+pip install git+https://github.com/adjust/github_prospector
+```
 ## Get metrics list
 ```shell
 python3 -m github_prospector -l
-```
-## Install
-```shell
-pip install -r requirements.txt
 ```
 ## How to run
 ```shell
