@@ -4,19 +4,19 @@ GitHub Prospector
 
 **Contacts:** maksim.kuznetsov@akvelon.com, viktor.chaptsev@adjust.com or Development Efficiency Team
 
-##Get metrics list
+## Get metrics list
 ```shell
-python3 __main__.py -l
+python3 -m github_prospector -l
 ```
-##Install
+## Install
 ```shell
 pip install -r requirements.txt
 ```
-##How to run
+## How to run
 ```shell
-python3 __main__.py -q <metrics splitted by comma>
+python3 -m github_prospector -q <metrics splitted by comma>
 ```
-##Usage
+## Usage
 ```
 Usage: __main__.py [options]
 

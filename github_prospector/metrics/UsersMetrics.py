@@ -1,4 +1,4 @@
-from metrics.Base import BaseMetrics, MetricsTypes
+from github_prospector.metrics.Base import BaseMetrics, MetricsTypes
 
 
 class UserMetrics(BaseMetrics):

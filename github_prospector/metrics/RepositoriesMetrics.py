@@ -3,7 +3,7 @@ import optparse
 from github.Commit import Commit
 from github.Repository import Repository
 
-from metrics.Base import github_rate_limit_decorator, BaseMetrics, MetricsTypes
+from github_prospector.metrics.Base import github_rate_limit_decorator, BaseMetrics, MetricsTypes
 
 
 class RepoMetrics(BaseMetrics):

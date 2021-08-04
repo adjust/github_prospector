@@ -6,7 +6,7 @@ from github.PullRequest import PullRequest
 from github.Repository import Repository
 from github.Team import Team
 
-from metrics.Base import BaseMetrics, MetricsTypes, github_rate_limit_decorator
+from github_prospector.metrics.Base import BaseMetrics, MetricsTypes, github_rate_limit_decorator
 
 
 class TeamMetrics(BaseMetrics):

@@ -7,11 +7,12 @@ from typing import Iterable
 from github import Github  # install PyGithub
 from github.GithubException import UnknownObjectException
 
-from __version__ import __version__
-from metrics.Base import __get_class_properties
+from github_prospector.__version__ import __version__
+from github_prospector.metrics.Base import __get_class_properties
 
 DATE_PATTERN = "%m-%d-%Y"
 
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 def print_version():
     print(f'Current auditor version: {__version__}')
@@ -55,11 +56,15 @@ def parse_date(s):
 
 def print_all_metrics():
     print("All existing metrics: ")
-    modules = [f'metrics.{i.split(".")[0]}' for i in os.listdir('metrics') if i.endswith('.py')]
+    modules = [
+        f'metrics.{i.split(".")[0]}' for i in os.listdir(os.path.join(
+            BASE_DIR, 'metrics'
+        )) if i.endswith('.py')
+    ]
     for module in modules:
         if module == 'metrics.Base':
             continue
-        tmp_module = importlib.import_module(module)
+        tmp_module = importlib.import_module('github_prospector.' + module)
         for i in dir(tmp_module):
             if not i.endswith('Metrics'):
                 continue

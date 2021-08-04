@@ -5,7 +5,7 @@ from github.NamedUser import NamedUser
 from github.Repository import Repository
 from github.Team import Team
 
-from metrics.Base import get_all_metrics, MetricsTypes
+from github_prospector.metrics.Base import get_all_metrics, MetricsTypes
 
 
 class QueryRunner:
