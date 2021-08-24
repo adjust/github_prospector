@@ -1,5 +1,6 @@
 # Project file/folders
 runs/
+settings.ini
 # IDE/Text Editors
 .idea/
 
