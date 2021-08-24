@@ -1,4 +1,4 @@
 # copy me as settings.ini and fill up variables
 [Github]
 token =
-organization = Adjust
+organization = adjust
